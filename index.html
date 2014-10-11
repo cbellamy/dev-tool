@@ -5,20 +5,63 @@
 		</title>
 	</head>
 	<body>
+		<!-- <div class="category-name1"/> -->
 
-		<div class="category-name1"/>
+		<<div class="catName1-0-blockName1-0"/>
 
-		<div class="block-name1"/>
-
-		<div class="block-name2"/>
+		<!-- <div class="block-name2"/> -->
+		<<div class="catName1-0-blockName2-0"/>
+		
+		<<div class="catName2-0-blockName2-0"/>
 
 		<div class="test">
 			Here is some stuff
 		</div>
-		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<!-- <div class="category-name2"/> -->
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery.regex-selector.js"></script>
 
 		<script>
+			// class="categoryName-templateName-blockName-variableName"
+			/* var createShoppingList = function() {
+				var output = [], entities = ["category", "template", "block", "variable"];
+                                var entitiesArrayLength = entities.length;
+				for (var i=0; i < entitiesArrayLength; i++) {
+					$("[class^='"+entities[i]+"-']").each( function() {
+						output.push($(this).attr('class'));
+					});
+                                $ is keyword for jquery. search any element that has a class name that starts
+                                 with category
+				}; 
 
+				return output;
+			}*/
+
+                        /*  var createShoppingList = function() {
+                                // var output = [], entities = ["category", "template", "block", "variable"];
+                                // var entitiesArrayLength = entities.length;
+                                
+				var output = $("[class^='block-name2']");
+                                return output;
+                        } */
+                        /* var createShoppingList = function() {
+                                // var output = [], entities = ["category", "template", "block", "variable"];
+                                // var entitiesArrayLength = entities.length;
+
+                                var output = $("[class^='block-name2']");
+                                return output;
+                        } */
+
+                        var createShoppingList = function() {
+                                var output = [];
+                                $(':regex(class,[A-Za-z0-9_]+-{1}[A-Za-z0-9_]+-{1}[A-Za-z0-9_]+-{1}[A-Za-z0-9_]+)').each( function() {
+					output.push($(this).attr('class'));
+				});
+
+                                return output;
+			};
+			console.log(createShoppingList());
 		</script>
 	</body>
 </html>
